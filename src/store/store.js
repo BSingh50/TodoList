@@ -18,7 +18,7 @@ export const store = new Vuex.Store({
         }],
     },
     getters:{
-        getTheFancyPancyPageList(state){
+        getPageList(state){
             var index = state.pageList.findIndex(l => l.page == state.currentPage);
             console.log("fancy array: ",index);
             console.log(state.currentPage);

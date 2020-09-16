@@ -57,10 +57,10 @@ export default {
   },
   methods:{
       completedPageList(){
-        return this.getTheFancyPancyPageList.filter(v => v.checkbox == true);
+        return this.getPageList.filter(v => v.checkbox == true);
       },
       todoPageList(){
-        return this.getTheFancyPancyPageList.filter(v => v.checkbox == false);
+        return this.getPageList.filter(v => v.checkbox == false);
       },
       remove(id){
         console.log("before ", this.$store.state.pageList)
@@ -89,10 +89,10 @@ export default {
     },
     computed:{
       ...mapGetters({
-        getTheFancyPancyPageList : 'getTheFancyPancyPageList'
+        getPageList : 'getPageList'
       }),
       getlist () {
-        return this.getTheFancyPancyPageList;
+        return this.getPageList;
       }
   }
 }

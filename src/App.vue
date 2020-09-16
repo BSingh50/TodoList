@@ -1,28 +1,53 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+       <v-navigation-drawer
+      v-model="drawer"
+      app
+      clipped
+    >
+      <Manage/>
+    </v-navigation-drawer>
+     <v-app-bar
+      app
+      clipped-left
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>To Do List</v-toolbar-title>
+    </v-app-bar>
+    <v-content>
+      <v-container
+        fluid
+      >
+        <v-layout
+          align-center
+          justify-center
+        >
+
+                  <router-view></router-view>
+               
+        </v-layout>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Manage from './components/todo-manage';
 export default {
   name: 'App',
+  data(){
+    return{
+      drawer: null,
+    }
+  },
   components: {
-    HelloWorld
-  }
-}
+    Manage
+  },
+  created () {
+      this.$vuetify.theme.dark = true
+    },
+
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
